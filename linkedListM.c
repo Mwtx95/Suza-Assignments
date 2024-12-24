@@ -15,7 +15,7 @@ void front_insertion()
 {
 	struct node *newnode;
 	newnode = (struct node*)malloc(sizeof(struct node));
-	printf("enter the element to be inserted\n");
+	printf("enter the element to be inserted in front\n");
 	scanf("%d",&newnode->data);
 	newnode->next = NULL;
 	
@@ -39,7 +39,7 @@ void back_insertion()
 	else
 	{
 		newnode = (struct node*)malloc(sizeof(struct node));
-		printf("enter the element to be inserted \n");
+		printf("enter the element to be inserted in back \n");
 		scanf("%d",&newnode->data);
 		newnode->next = NULL;
 		temp = head;
@@ -57,8 +57,8 @@ void middle_insertion()
 {
 	struct node *newnode,*temp;
 	int n;
-	newnode = (struct node)malloc(sizeof(struct node));
-	printf("enter the element to be inserted\n");
+	newnode = (struct node*)malloc(sizeof(struct node));
+	printf("enter the element to be inserted in middle\n");
 	scanf("%d",&newnode->data);
 	printf("enter the node after which this node has to be inserted\n");
 	scanf("%d",&n);
@@ -83,7 +83,7 @@ void front_deletion()
 		if(head->next == NULL)
 		head = NULL;
 		head = head->next;
-		printf("the deleted node is %d\n",temp->data);
+		printf("the front deleted node is %d\n",temp->data);
 		free(temp);
 	}
 }
@@ -93,7 +93,7 @@ void back_deletion()
 	struct node *temp,*prev;
 	if(head == NULL)
 	{
-		printf("the list is empty\n")
+		printf("the list is empty\n");
 		return;
 	}
 	else
@@ -107,6 +107,7 @@ void back_deletion()
 		prev->next = NULL;
 		if(prev->data==NULL)
 		head = NULL;
+		printf("the back deleted node is %d\n",temp->data);
 		free(temp);
 	}
 	return;
@@ -128,7 +129,7 @@ void middle_deletion() {
 
     if (temp->data == n) {
         head = head->next;
-        printf("The deleted node is %d\n", temp->data);
+        printf("The middle  deleted node is %d\n", temp->data);
         free(temp);
         return;
     }
@@ -139,12 +140,12 @@ void middle_deletion() {
     }
 
     if (temp == NULL) {
-        printf("Node not found\n", n);
+        printf("Node %d not found\n", n);
         return;
     }
 
     prev->next = temp->next;
-    printf("The deleted node is %d\n", temp->data);
+    printf("The middle deleted node is %d\n", temp->data);
     free(temp);
     return;
 }
@@ -164,6 +165,14 @@ void display()
 int main()
 {
 	front_insertion();
+	front_insertion();
+	front_insertion();
+	front_insertion();
 	back_insertion();
+	middle_insertion();
+	middle_insertion();
+	front_deletion();
+	back_deletion();
+	middle_deletion();
 	display();
 }
