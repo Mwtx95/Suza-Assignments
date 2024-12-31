@@ -11,6 +11,7 @@ void push(int item)
 {
 if (st.top >=size-1){
 printf("stack overflow\n");
+return;
 }
 st.s[++st.top] = item;
 }
