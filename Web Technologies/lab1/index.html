@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Structure and Tags</title>
+    <link rel="icon" href="edugamez-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar-container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="edugamez-logo.png" alt="EduGamez Logo" width="40" height="40">
+                <span>Web Basics</span>
+            </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="form.html">Form Demo</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Headings, paragraphs, horizontal rules, and line breaks -->
+    <h1>Main Heading: HTML Basics</h1>
+    <p>This is a paragraph demonstrating the use of paragraph tags. It contains text that flows normally until a line break is inserted.</p>
+    <br>
+    <p>This is a second paragraph after a line break. Notice how it continues on a new line.</p>
+    
+    <hr>
+    
+    <h2>Secondary Heading: More HTML Elements</h2>
+    <h3>Tertiary Heading: Lists and Images</h3>
+    <h4>Fourth Level Heading</h4>
+    <h5>Fifth Level Heading</h5>
+    <h6>Sixth Level Heading</h6>
+    
+    <hr>
+    
+    <!-- Unordered list of favorite books -->
+    <section id="books">
+        <h2>My Top 5 Favorite Books</h2>
+        <ul>
+            <li>To Kill a Mockingbird by Harper Lee</li>
+            <li>1984 by George Orwell</li>
+            <li>The Great Gatsby by F. Scott Fitzgerald</li>
+            <li>Pride and Prejudice by Jane Austen</li>
+            <li>The Catcher in the Rye by J.D. Salinger</li>
+        </ul>
+    </section>
+    
+    <!-- Ordered list of hobbies -->
+    <section id="hobbies">
+        <h2>My Top 5 Hobbies</h2>
+        <ol>
+            <li>Reading books</li>
+            <li>Hiking in nature</li>
+            <li>Cooking new recipes</li>
+            <li>Playing the piano</li>
+            <li>Photography</li>
+        </ol>
+    </section>
+    
+    <hr>
+    
+    <!-- Images with alt text -->
+    <section>
+        <h2>Images</h2>
+        <figure>
+            <img src="seif.jpg" width="500px" height="500px" alt="image of seif">
+            <figcaption>This is my image</figcaption>
+        </figure>
+        
+        <figure>
+            <img src="soldier.jpg" width="500px" height="300px" alt="image of Terrorist">
+            <figcaption>This is Terrorist image </figcaption>
+        </figure>
+    </section>
+    
+    <hr>
+    
+    <!-- Links to favorite websites -->
+    <section>
+        <h2>My Favorite Websites</h2>
+        <ul>
+            <li><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a> - The free encyclopedia</li>
+            <li><a href="https://www.github.com" target="_blank">GitHub</a> - Where developers collaborate</li>
+            <li><a href="https://www.youtube.com" target="_blank">YouTube</a> - For video content</li>
+            <li><a href="https://www.google.com" target="_blank">Google</a> - The Browser </li>
+        </ul>
+    </section>
+    
+    <hr>
+    
+    <!-- Weekly schedule table -->
+    <section id="schedule">
+        <h2>My Weekly Schedule</h2>
+        <table border="5">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>9:00 - 11:00</td>
+                    <td>DS</td>
+                    <td>OS</td>
+                    <td>Android</td>
+                    <td>Web</td>
+                    <td>Team Project</td>
+                </tr>
+                <tr>
+                    <td>11:00 - 13:00</td>
+                    <td>Study Time</td>
+                    <td>Lunch Break</td>
+                    <td>Group Study</td>
+                    <td>Lunch Break</td>
+                    <td>Lab Work</td>
+                </tr>
+                <tr>
+                    <td>14:00 - 16:00</td>
+                    <td>Web</td>
+                    <td>Research</td>
+                    <td>Free Time</td>
+                    <td>Programming</td>
+                    <td>Study Time</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <hr>
+    
+    <!-- Semantic HTML demo -->
+    <section>
+        <h2>Semantic HTML Example</h2>
+        <article>
+            <h3>What is Semantic HTML?</h3>
+            <p>Semantic HTML introduces meaning to the web page rather than just presentation. Examples include &lt;article&gt;, &lt;section&gt;, &lt;nav&gt;, &lt;header&gt;, &lt;footer&gt;, and more.</p>
+        </article>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 My HTML Demo Page</p>
+    </footer>
+</body>
+</html>

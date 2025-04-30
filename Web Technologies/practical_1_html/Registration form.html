@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>/title>
+</head>
+<body>
+    <form>
+      <fieldset>
+        <legend>Academic information</legend>
+        <label for="degree">Degree</label>
+        <select id="degree" name="degree">
+          <option selected>Master of Business Administration</option>
+          <option>Bachelor of Science</option>
+          <option>Bachelor of Arts</option>
+          <option>PhD</option>
+        </select>
+        <br><br>
+        
+        <label for="student-id">Student ID</label>
+        <input type="text" id="student-id" name="student-id">
+        <br><br>
+        
+        <label for="classes">Classes attended</label>
+        <select id="classes" name="classes" multiple size="3">
+          <option>Geography</option>
+          <option>Mathematics</option>
+          <option>English</option>
+          <option>History</option>
+          <option>Science</option>
+        </select>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Personal Details</legend>
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first-name">
+        <br><br>
+        
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name">
+        <br><br>
+        
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <br><br>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </fieldset>
+    
+      <!-- still sijafahamu na hapa -->
+      <textarea id="terms" name="terms" rows="4" cols="50" readonly>
+    TERMS AND CONDITIONS...
+      </textarea>
+      
+      <br><br>
+      <input type="submit" value="Send Form">
+      <input type="reset" value="Clear Form">
+    </form>
+</body>
+</html>

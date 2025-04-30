@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizza Shop 2.0</title>
+</head>
+<body>
+    <form>
+        <table border="1">
+            <tr>
+                <th colspan="2">Pizza Shop 2.0</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Pizza Topping</td>
+                <td>
+                    <input type="radio" name="topping" value="supreme"> Supreme
+                    <br>
+                    <input type="radio" name="topping" value="vegetarian"> Vegetarian
+                    <br>
+                    <input type="radio" name="topping" value="hawaiian"> Hawaiian
+                </td>
+            </tr>
+            <tr>
+                <td>Pizza Sauce</td>
+                <td>
+                    <select name="sauce">
+                        <option value="tomato">Tomato</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Optional Extras</td>
+                <td>
+                    <input type="checkbox" name="extras" value="cheese"> Extra Cheese
+                    <input type="checkbox" name="extras" value="glutenfree"> Gluten Free Base
+                </td>
+            </tr>
+            <!-- sijafaham hapa kwenye cols na rows -->
+            <tr>
+                <td colspan="2">Delivery Instructions: <br><textarea name="instructions" cols="50" rows="4"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Send my Order">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

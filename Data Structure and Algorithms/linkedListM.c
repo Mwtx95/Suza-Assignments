@@ -64,12 +64,12 @@ void middle_insertion()
 	scanf("%d",&n);
 	temp = head;
 	while(temp->data!=n && temp!=NULL)
-		{
-			temp = temp->next;
-			newnode ->next = temp->next;
-			temp->next = newnode;
-			return;
-		}
+	{
+		temp = temp->next;
+	}
+		newnode ->next = temp->next;
+		temp->next = newnode;
+		return;
 }
 
 void front_deletion()

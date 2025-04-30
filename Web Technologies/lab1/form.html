@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms</title>
+    <link rel="icon" href="edugamez-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar-container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="edugamez-logo.png" alt="EduGamez Logo" width="40" height="40">
+                <span>Web Basics</span>
+            </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="form.html" class="active">Form Demo</a></li>
+                <li><a href="index.html#books">Books</a></li>
+                <li><a href="index.html#hobbies">Hobbies</a></li>
+                <li><a href="index.html#schedule">Schedule</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <h1>Fill The Forms</h1>
+    
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Gender</legend>
+            
+            <div>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+            </div>
+            
+            <div>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+            
+            <div>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Interests</legend>
+            
+            <div>
+                <input type="checkbox" id="technology" name="interests" value="technology">
+                <label for="technology">Technology</label>
+            </div>
+            
+            <div>
+                <input type="checkbox" id="sports" name="interests" value="sports">
+                <label for="sports">Sports</label>
+            </div>
+            
+            <div>
+                <input type="checkbox" id="art" name="interests" value="art">
+                <label for="art">Art</label>
+            </div>
+            
+            <div>
+                <input type="checkbox" id="music" name="interests" value="music">
+                <label for="music">Music</label>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Country</legend>
+            
+            <div>
+                <label for="country">Select your country:</label>
+                <select id="country" name="country">
+                    <option value="">--Please choose a country--</option>
+                    <option value="usa">United States</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="australia">Australia</option>
+                    <option value="germany">Germany</option>
+                    <option value="france">France</option>
+                    <option value="japan">Japan</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Profile Picture</legend>
+            
+            <div>
+                <label for="profile-pic">Upload a profile picture:</label>
+                <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+            </div>
+        </fieldset>
+        
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    
+    <footer>
+        <p>&copy; 2025 HTML Forms Demo</p>
+    </footer>
+</body>
+</html>
