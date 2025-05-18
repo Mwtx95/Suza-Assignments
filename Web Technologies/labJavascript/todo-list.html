@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="todo-list.js" type="text/javascript"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 40px;
+        }
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 70%;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #remove {
+            background-color: #f44336;
+        }
+        #remove:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>My super nifty to-do list</h1>
+    <ul id="list"></ul>
+    <div>
+        <input type="text" id="item" />
+        <button id="add">add</button>
+        <button id="remove">remove</button>
+    </div>
+</body>
+</html>
