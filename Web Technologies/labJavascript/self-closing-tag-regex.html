@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Closing HTML Tag Regex Tester</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .description {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .regex-container {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-bottom: 20px;
+            word-break: break-all;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .valid {
+            color: green;
+            font-weight: bold;
+        }
+        .invalid {
+            color: red;
+            font-weight: bold;
+        }
+        .test-input {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 70%;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Self-Closing HTML Tag Regular Expression</h1>
+    
+    <div class="description">
+        <h2>Requirements:</h2>
+        <ul>
+            <li>Must start with <code>&lt;</code></li>
+            <li>Must have a tag name (must start with a letter)</li>
+            <li>Can have 0, 1, or more properties (attributes)</li>
+            <li>Must end with <code>/&gt;</code></li>
+        </ul>
+    </div>
+    
+    <div class="regex-container">
+        <h2>The Regular Expression:</h2>
+        <code>&lt;([a-zA-Z][a-zA-Z0-9]*)(\s+[a-zA-Z][a-zA-Z0-9]*(?:=(?:"[^"]*"|'[^']*'|[^\s&gt;]*))?)*\s*/&gt;</code>
+    </div>
+    
+    <h2>Test Cases:</h2>
+    <table>
+        <tr>
+            <th>Tag</th>
+            <th>Valid?</th>
+            <th>Explanation</th>
+        </tr>
+        <tr>
+            <td>&lt;img src="foo.jpg" /&gt;</td>
+            <td class="valid">Valid</td>
+            <td>Starts with &lt;, has tag name (img), has attribute, ends with /&gt;</td>
+        </tr>
+        <tr>
+            <td>&lt;img /&gt;</td>
+            <td class="valid">Valid</td>
+            <td>Starts with &lt;, has tag name (img), no attributes, ends with /&gt;</td>
+        </tr>
+        <tr>
+            <td>&lt;a href="foo.html" id="stuff" /&gt;</td>
+            <td class="valid">Valid</td>
+            <td>Starts with &lt;, has tag name (a), has multiple attributes, ends with /&gt;</td>
+        </tr>
+        <tr>
+            <td>&lt;/&gt;</td>
+            <td class="invalid">Invalid</td>
+            <td>Missing tag name</td>
+        </tr>
+        <tr>
+            <td>&lt;img src= /&gt;</td>
+            <td class="invalid">Invalid</td>
+            <td>Attribute missing value</td>
+        </tr>
+        <tr>
+            <td>&lt;img src="foo.jpg"&gt;</td>
+            <td class="invalid">Invalid</td>
+            <td>Not a self-closing tag (missing the /)</td>
+        </tr>
+    </table>
+    
+    <div class="test-input">
+        <h2>Test Your Own HTML Tag:</h2>
+        <input type="text" id="tag-input" placeholder="Enter an HTML tag...">
+        <button id="test-button">Test</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // The regular expression for self-closing HTML tags
+        const selfClosingTagRegex = /<([a-zA-Z][a-zA-Z0-9]*)(\s+[a-zA-Z][a-zA-Z0-9]*(?:=(?:"[^"]*"|'[^']*'|[^\s>]*))?)*\s*\/>/;
+        
+        // Function to validate a self-closing HTML tag
+        function validateSelfClosingTag(tag) {
+            return selfClosingTagRegex.test(tag);
+        }
+        
+        // Set up event listener for the test button
+        document.getElementById('test-button').addEventListener('click', function() {
+            const tag = document.getElementById('tag-input').value;
+            const result = validateSelfClosingTag(tag);
+            const resultElement = document.getElementById('result');
+            
+            if (result) {
+                resultElement.innerHTML = `<span class="valid">Valid self-closing HTML tag!</span>`;
+            } else {
+                resultElement.innerHTML = `<span class="invalid">Invalid self-closing HTML tag!</span>`;
+            }
+        });
+    </script>
+</body>
+</html>
