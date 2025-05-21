@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .error { color: red; font-size: 0.8em; }
+        textarea { width: 100%; }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; vertical-align: top; }
+        .buttons { text-align: center; margin-top: 20px; }
+        button { padding: 8px 16px; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <h1>Test JavaScript Form Validation</h1>
+    <form id="myForm" onsubmit="return validateForm()">
+        <table>
+            <tr>
+                <td>Name*</td>
+                <td>
+                    <input type="text" id="name" name="name">
+                    <div id="nameError" class="error">Please enter your name!</div>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><textarea id="address" name="address" rows="3"></textarea></td>
+            </tr>
+            <tr>
+                <td>Zip Code*</td>
+                <td>
+                    <input type="text" id="zip" name="zip">
+                    <div id="zipError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Country*</td>
+                <td>
+                    <select id="country" name="country">
+                        <option value="">Please select... ▼</option>
+                        <option value="US">United States</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="CA">Canada</option>
+                        <option value="AU">Australia</option>
+                    </select>
+                    <div id="countryError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender*</td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="male"> Male
+                    <input type="radio" id="female" name="gender" value="female"> Female
+                    <div id="genderError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Preferences*</td>
+                <td>
+                    <input type="checkbox" id="red" name="preferences" value="red"> Red
+                    <input type="checkbox" id="green" name="preferences" value="green"> Green
+                    <input type="checkbox" id="blue" name="preferences" value="blue"> Blue
+                    <div id="preferencesError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone*</td>
+                <td>
+                    <input type="tel" id="phone" name="phone">
+                    <div id="phoneError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Email*</td>
+                <td>
+                    <input type="email" id="email" name="email">
+                    <div id="emailError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Password (6-8 characters)*</td>
+                <td>
+                    <input type="password" id="password" name="password">
+                    <div id="passwordError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Verify password*</td>
+                <td>
+                    <input type="password" id="verifyPassword" name="verifyPassword">
+                    <div id="verifyPasswordError" class="error"></div>
+                </td>
+            </tr>
+        </table>
+        <div class="buttons">
+            <button type="submit">SEND</button>
+            <button type="button" onclick="clearForm()">CLEAR</button>
+        </div>
+    </form>
+
+    <!-- Load the external JavaScript file with validation functions -->
+    <script src="question1.js"></script>
+</body>
+</html>

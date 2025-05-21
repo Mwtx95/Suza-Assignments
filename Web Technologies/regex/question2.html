@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        .checkbox-group label {
+            display: inline;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto 0;
+            width: 200px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Registration Form</h1>
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="name">Student Name*</label>
+                <input type="text" id="name" name="name" required>
+                <div id="nameError" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="regNumber">Register Number*</label>
+                <input type="text" id="regNumber" name="regNumber" required>
+                <div id="regNumberError" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth*</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="program">Program*</label>
+                <select id="program" name="program" required>
+                    <option value="">Select Program</option>
+                    <option value="bsc">BSc Computer Science</option>
+                    <option value="btech">B.Tech Information Technology</option>
+                    <option value="bca">BCA</option>
+                    <option value="mca">MCA</option>
+                    <option value="msc">MSc Computer Science</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email ID*</label>
+                <input type="text" id="email" name="email" required>
+                <div id="emailError" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="tempAddress">Temporary Address*</label>
+                <textarea id="tempAddress" name="tempAddress" required></textarea>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="sameAddress" name="sameAddress" onchange="handleAddressCheckbox()">
+                <label for="sameAddress">Permanent address is same as temporary address</label>
+            </div>
+
+            <div class="form-group">
+                <label for="permAddress">Permanent Address*</label>
+                <textarea id="permAddress" name="permAddress" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number*</label>
+                <input type="text" id="phone" name="phone" required maxlength="10">
+                <div id="phoneError" class="error"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to handle the address checkbox
+        function handleAddressCheckbox() {
+            const sameAddressCheckbox = document.getElementById('sameAddress');
+            const tempAddress = document.getElementById('tempAddress');
+            const permAddress = document.getElementById('permAddress');
+
+            if (sameAddressCheckbox.checked) {
+                permAddress.value = tempAddress.value;
+                permAddress.disabled = true;
+            } else {
+                permAddress.disabled = false;
+            }
+        }
+
+        // Listen for changes in temporary address
+        document.getElementById('tempAddress').addEventListener('input', function() {
+            if (document.getElementById('sameAddress').checked) {
+                document.getElementById('permAddress').value = this.value;
+            }
+        });
+
+        // Main form validation function
+        function validateForm() {
+            let isValid = true;
+            
+            // Reset all error messages
+            const errorElements = document.querySelectorAll('.error');
+            errorElements.forEach(element => {
+                element.style.display = 'none';
+                element.textContent = '';
+            });
+
+            // a. Validate mobile number (exactly 10 digits)
+            const phone = document.getElementById('phone');
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone.value)) {
+                document.getElementById('phoneError').textContent = 'Phone number must be exactly 10 digits';
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+
+            // b. Validate register number (alphabets and numbers only)
+            const regNumber = document.getElementById('regNumber');
+            const regNumberRegex = /^[A-Za-z0-9]+$/;
+            if (!regNumberRegex.test(regNumber.value)) {
+                document.getElementById('regNumberError').textContent = 'Register number can only contain alphabets and numbers';
+                document.getElementById('regNumberError').style.display = 'block';
+                isValid = false;
+            }
+
+            // c. Validate name (only alphabets, max 30 characters)
+            const name = document.getElementById('name');
+            const nameRegex = /^[A-Za-z ]{1,30}$/;
+            if (!nameRegex.test(name.value)) {
+                document.getElementById('nameError').textContent = 'Name must contain only alphabets and not exceed 30 characters';
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // d. Validate email
+            const email = document.getElementById('email');
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email.value)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+
+            // e. Update permanent address if checkbox is checked
+            if (document.getElementById('sameAddress').checked) {
+                document.getElementById('permAddress').value = document.getElementById('tempAddress').value;
+            }
+
+            if (isValid) {
+                alert('Form submitted successfully!');
+                // For testing purposes - normally this would submit to server
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>
