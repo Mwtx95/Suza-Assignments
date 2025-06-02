@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 50px;
+            margin-right: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        td {
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+        .message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form id="linksForm">
+        <h2>Links Generator</h2>
+        <div>
+            <label for="startRange">Start Range:</label>
+            <input type="text" id="startRange" value="1">
+            
+            <label for="endRange">End Range:</label>
+            <input type="text" id="endRange" value="1">
+        </div>
+        <button type="button" onclick="displayTable()">displayTable</button>
+        <div id="rangeMessage" class="message"></div>
+    </form>
+    <div id="tableContainer"></div>
+
+    <script>
+        // Global data array
+        let data = ["syllabus.html", "p1.html", "p2.html", "style.html", "email.html", "system.html", "process.html"];
+
+        // Main function to initialize the page
+        function main() {
+            // Display the initial valid range message
+            updateRangeMessage();
+        }
+
+        // Function to update the range message
+        function updateRangeMessage() {
+            const messageElement = document.getElementById("rangeMessage");
+            messageElement.textContent = `Valid Range: 1-${data.length}`;
+        }
+
+        // Function to display the table based on user input
+        function displayTable() {
+            const startInput = document.getElementById("startRange").value;
+            const endInput = document.getElementById("endRange").value;
+            const tableContainer = document.getElementById("tableContainer");
+            const messageElement = document.getElementById("rangeMessage");
+
+            // Convert inputs to numbers
+            const start = parseInt(startInput);
+            const end = parseInt(endInput);
+
+            // Validate the range
+            if (isNaN(start) || isNaN(end) || start < 1 || end > data.length || start > end) {
+                tableContainer.innerHTML = "";
+                messageElement.textContent = `Invalid range, valid range: 1-${data.length}`;
+                return;
+            }
+
+            // Create the table
+            let tableHTML = "<table>";
+            for (let i = start - 1; i < end; i++) {
+                const fileName = data[i];
+                tableHTML += `<tr><td><a href="${fileName}">${fileName}</a></td></tr>`;
+            }
+            tableHTML += "</table>";
+
+            // Display the table and update the message
+            tableContainer.innerHTML = tableHTML;
+            messageElement.textContent = `Valid Range: 1-${data.length}`;
+        }
+
+        // Call main function when the page loads
+        window.onload = main;
+    </script>
+</body>
+</html>
